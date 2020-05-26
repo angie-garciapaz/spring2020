@@ -1,1 +1,41 @@
-<p>contact-detail works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="display: flex; justify-content: space-between">
+        <div class="row">
+          <h4>
+            {{contact.name}}
+          </h4>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <!--            <a href="#" class="list-group-item clearfix"-->
+            <!--               *ngFor="let contact of contacts">-->
+            <div class="pull-left">
+              <h4 class="list-group-item-heading">
+                {{ contact.imageUrl}}
+              </h4>
+            </div>
+            <span class="pull-right">
+ <button class="btn btn-primary" style="margin-right: 5px;">Edit</button>
+                 <button class="btn btn-danger">Delete</button>
+
+      </span>
+
+            <!--            </a>-->
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <div><strong>Email:</strong></div>
+        <div><strong>Phone:</strong></div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
