@@ -3,9 +3,9 @@
     <div class="panel panel-default">
       <div class="panel-heading" style="display: flex; justify-content: space-between">
         <div class="row">
-          <h4>
-            {{contact.name}}
-          </h4>
+          <div class="col">
+            <h1>{{contact.name}}</h1>
+          </div>
         </div>
 
         <br>
@@ -16,7 +16,8 @@
             <!--               *ngFor="let contact of contacts">-->
             <div class="pull-left">
               <h4 class="list-group-item-heading">
-                {{ contact.imageUrl}}
+                <img [src]="contact.imageUrl"
+                     alt="{{contact.name}}">
               </h4>
             </div>
             <span class="pull-right">
@@ -31,8 +32,8 @@
       </div>
 
       <div class="panel-body">
-        <div><strong>Email:</strong></div>
-        <div><strong>Phone:</strong></div>
+        <div><strong>Email:</strong> {{contact.email}}</div>
+        <div><strong>Phone:</strong> {{contact.phone}}</div>
 
       </div>
 
