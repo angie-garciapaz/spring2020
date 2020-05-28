@@ -3,12 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-7">
-        <app-contact-list></app-contact-list>
-      </div>
-      <div class="col-md-5">
-        <app-contact-detail></app-contact-detail>
-      </div>
+        <app-contacts *ngIf="selectedFeature === 'contacts'"></app-contacts>
     </div>
   </div>
 </div>
