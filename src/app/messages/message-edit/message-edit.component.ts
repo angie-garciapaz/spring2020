@@ -21,11 +21,11 @@ export class MessageEditComponent implements OnInit {
   }
 
   onSendMessage() {
-    // const subjectTitle = this.subjectInputRef.nativeElement.value;
-    // const msgTextBody = this.msgTextInputRef.nativeElement.value;
-    // const newMessage = new Message('1', subjectTitle, msgTextBody, this.currentSender);
-    // this.messageService.addMessage(newMessage);
-    // this.onClear();
+    const subjectTitle = this.subjectInputRef.nativeElement.value;
+    const msgTextBody = this.msgTextInputRef.nativeElement.value;
+    const newMessage = new Message('1', subjectTitle, msgTextBody, this.currentSender);
+    this.messageService.addMessage(newMessage);
+    this.onClear();
   }
 
   onClear() {
