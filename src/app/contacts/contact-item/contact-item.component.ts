@@ -18,7 +18,6 @@ export class ContactItemComponent implements OnInit {
 
   onSelected() {
     this.contactSelected.emit();
-    console.log(this.contact);
   }
 
 }
