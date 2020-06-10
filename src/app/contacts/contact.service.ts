@@ -16,13 +16,19 @@ export class ContactService {
   }
 
   getContact(id: string): Contact {
-    this.contacts.forEach(
-      contact => {
-        if (contact.id === id) {
-          return contact;
-        }
+    // this.contacts.forEach(
+    //   contact => {
+    //     if (contact.id === id) {
+    //       return contact;
+    //     }
+    //   }
+    // );
+    // return null;
+    for (const contact of this.contacts) {
+      if (contact.id === id) {
+        return contact;
       }
-    );
+    }
     return null;
   }
 
