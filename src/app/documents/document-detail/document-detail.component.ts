@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {Document} from '../document.model';
+
 
 @Component({
   selector: 'app-document-detail',
@@ -9,7 +11,7 @@ import {Document} from '../document.model';
 export class DocumentDetailComponent implements OnInit {
   @Input() document: Document;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {

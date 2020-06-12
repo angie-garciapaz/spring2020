@@ -7,9 +7,5 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class AppComponent {
   title = 'cms-week2';
-  selectedFeature = 'contacts';
 
-  switchView(selectedFeature: string) {
-    this.selectedFeature = selectedFeature;
-  }
 }
