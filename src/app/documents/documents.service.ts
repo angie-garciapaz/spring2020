@@ -1,13 +1,14 @@
 import {Document} from './document.model';
 import {MOCKDOCUMENTS} from './MOCKDOCUMENTS';
 import {EventEmitter, Injectable} from '@angular/core';
+import {WinRefService} from '../win-ref.service';
 
 @Injectable({providedIn: 'root'})
 export class DocumentsService {
   documents: Document[];
   documentSelectedEvent = new EventEmitter();
 
-  constructor() {
+  constructor(private winRefService: WinRefService) {
     this.documents = MOCKDOCUMENTS;
   }
 
@@ -16,13 +17,11 @@ export class DocumentsService {
   }
 
   getDocument(id: string): Document {
-    this.documents.forEach(
-      document => {
-        if (document.id === id) {
-          return document;
-        }
+    for (const document of this.documents) {
+      if (document.id === id) {
+        return document;
       }
-    );
+    }
     return null;
   }
 }

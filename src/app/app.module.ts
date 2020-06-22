@@ -19,7 +19,8 @@ import {MessageListComponent} from './messages/message-list/message-list.compone
 import {DropdownDirective} from './dropdown.directive';
 import {ContactService} from './contacts/contact.service';
 import {AppRoutingModule} from './app-routing';
-import { DocumentViewComponent } from './documents/document-view/document-view.component';
+import {DocumentViewComponent} from './documents/document-view/document-view.component';
+import {WinRefService} from './win-ref.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { DocumentViewComponent } from './documents/document-view/document-view.c
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [WinRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,13 +1,14 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Message} from './message.model';
 import {MOCKMESSAGES} from './MOCKMESSAGES';
+import {WinRefService} from '../win-ref.service';
 
 @Injectable({providedIn: 'root'})
 export class MessagesService {
   messages: Message[];
   messageChangeEvent = new EventEmitter<Message[]>();
 
-  constructor() {
+  constructor(private winRefService: WinRefService) {
     this.messages = MOCKMESSAGES;
   }
 
