@@ -21,12 +21,14 @@ import {ContactService} from './contacts/contact.service';
 import {AppRoutingModule} from './app-routing';
 import {DocumentViewComponent} from './documents/document-view/document-view.component';
 import {WinRefService} from './win-ref.service';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContactsComponent,
+    ContactEditComponent,
     ContactListComponent,
     ContactDetailComponent,
     ContactItemComponent,
@@ -40,7 +42,8 @@ import {WinRefService} from './win-ref.service';
     MessageEditComponent,
     MessageListComponent,
     DropdownDirective,
-    DocumentViewComponent
+    DocumentViewComponent,
+
   ],
   imports: [
     BrowserModule,

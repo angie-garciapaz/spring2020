@@ -15,13 +15,16 @@
             <div class="pull-left">
               <h4 class="list-group-item-heading">
                 <img style="max-height: 100px;"
-                  [src]="contact.imageUrl"
+                     [src]="contact.imageUrl"
                      alt="{{contact.name}}">
               </h4>
             </div>
             <span class="pull-right">
- <button class="btn btn-primary" style="margin-right: 5px;">Edit</button>
-                 <button class="btn btn-danger">Delete</button>
+             <a [routerLink]="['edit']"
+                class="btn btn-primary"
+                style="margin-right: 5px;">Edit</a>
+                 <a (click)="onDelete()"
+                    class="btn btn-danger">Delete</a>
 
       </span>
 

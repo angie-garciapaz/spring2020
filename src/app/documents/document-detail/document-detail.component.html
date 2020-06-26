@@ -12,7 +12,8 @@
            style="margin-right: 5px"
            [routerLink]="['edit']"
         >Edit</a>
-        <a class="btn btn-danger"
+        <a (click)="onDelete()"
+          class="btn btn-danger"
            style="margin-right: 5px">Delete</a>
       </div>
     </div>

@@ -7,6 +7,7 @@ import {WinRefService} from '../win-ref.service';
 export class DocumentsService {
   documents: Document[];
   documentSelectedEvent = new EventEmitter();
+  documentChangedEvent = new EventEmitter<Document[]>();
 
   constructor(private winRefService: WinRefService) {
     this.documents = MOCKDOCUMENTS;
@@ -24,4 +25,19 @@ export class DocumentsService {
     }
     return null;
   }
+
+  deleteDocument(document: Document) {
+    if (document === null) {
+      return;
+    }
+
+    const pos = this.documents.indexOf(document);
+    if (pos < 0) {
+      return;
+    }
+
+    this.documents.splice(pos, 1);
+    this.documentChangedEvent.emit(this.documents.slice());
+  }
+
 }

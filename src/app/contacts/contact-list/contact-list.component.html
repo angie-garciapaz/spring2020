@@ -10,8 +10,7 @@
           <div class="col-xs-12">
             <app-contact-item
               *ngFor="let contactEl of contacts"
-              [contact]="contactEl"
-              (contactSelected)=onSelected(contactEl)>
+              [contact]="contactEl">
             </app-contact-item>
           </div>
         </div>
