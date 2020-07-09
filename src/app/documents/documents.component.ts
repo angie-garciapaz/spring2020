@@ -8,14 +8,14 @@ import {DocumentsService} from './documents.service';
   styleUrls: ['./documents.component.css']
 })
 export class DocumentsComponent implements OnInit {
-  @Input() selectedDocument: Document;
+  @Input() selectedDocument: Document[];
 
   constructor(private documentService: DocumentsService) {
   }
 
   ngOnInit() {
-    this.documentService.documentSelectedEvent.subscribe(
-      (document: Document) => {
+    this.documentService.documentListChangedEvent.subscribe(
+      (document: Document[]) => {
         this.selectedDocument = document;
       }
     );

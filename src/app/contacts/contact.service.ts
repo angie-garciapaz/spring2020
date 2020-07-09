@@ -2,11 +2,12 @@ import {Contact} from './contact.model';
 import {MOCKCONTACTS} from './MOCKCONTACTS';
 import {EventEmitter, Injectable} from '@angular/core';
 import {WinRefService} from '../win-ref.service';
+import {Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class ContactService {
   contacts: Contact[] = [];
-  contactSelectedEvent = new EventEmitter<Contact>();
+  contactSelectedEvent = new Subject<Contact>();
   contactChangedEvent = new EventEmitter<Contact[]>();
 
   constructor(private winRefService: WinRefService) {
@@ -45,7 +46,7 @@ export class ContactService {
     }
 
     this.contacts.splice(pos, 1);
-    this.contactChangedEvent.emit(this.contacts.slice());
+    this.contactChangedEvent.next(this.contacts.slice());
   }
 
 }

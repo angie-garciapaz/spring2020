@@ -2,15 +2,17 @@ import {Document} from './document.model';
 import {MOCKDOCUMENTS} from './MOCKDOCUMENTS';
 import {EventEmitter, Injectable} from '@angular/core';
 import {WinRefService} from '../win-ref.service';
+import {Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class DocumentsService {
   documents: Document[];
-  documentSelectedEvent = new EventEmitter();
-  documentChangedEvent = new EventEmitter<Document[]>();
+  documentListChangedEvent = new Subject<Document[]>();
+  maxDocumentId: number;
 
   constructor(private winRefService: WinRefService) {
     this.documents = MOCKDOCUMENTS;
+    this.maxDocumentId = this.getMaxId();
   }
 
   getDocuments(): Document[] {
@@ -37,7 +39,38 @@ export class DocumentsService {
     }
 
     this.documents.splice(pos, 1);
-    this.documentChangedEvent.emit(this.documents.slice());
+    this.documentListChangedEvent.next(this.documents.slice());
   }
 
+  getMaxId(): number {
+    let maxId = 0;
+
+    for (const document of this.documents) {
+      const currentid = parseInt(document.id);
+
+      if (currentid > maxId) {
+        maxId = currentid;
+      }
+    }
+    return maxId;
+
+  }
+
+  addDocument(newDocument: Document) {
+    if (!newDocument) {
+      return;
+    }
+
+    this.maxDocumentId++;
+
+    newDocument.id = this.maxDocumentId.toString();
+
+    this.documents.push(newDocument);
+
+    const documentListClone = this.documents.slice();
+
+    this.documentListChangedEvent.next(documentListClone);
+  }
+
+  updateDocument()
 }
