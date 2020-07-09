@@ -72,5 +72,5 @@ export class DocumentsService {
     this.documentListChangedEvent.next(documentListClone);
   }
 
-  updateDocument()
+  updateDocument(){}
 }
