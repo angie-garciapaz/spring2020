@@ -22,6 +22,7 @@ import {AppRoutingModule} from './app-routing';
 import {DocumentViewComponent} from './documents/document-view/document-view.component';
 import {WinRefService} from './win-ref.service';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [WinRefService],
   bootstrap: [AppComponent]
