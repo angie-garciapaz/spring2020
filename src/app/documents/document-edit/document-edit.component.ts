@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Document} from '../document.model';
 import {FormsModule, NgForm} from '@angular/forms';
 import {DocumentsService} from '../documents.service';
@@ -10,6 +10,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
   styleUrls: ['./document-edit.component.css']
 })
 export class DocumentEditComponent implements OnInit {
+  @ViewChild('f', {static: false}) deForm: NgForm;
   id: string;
   editMode = false;
   document: Document;
@@ -43,7 +44,27 @@ export class DocumentEditComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log('submitted!');
+    const values = form.value;
+
+    // const newDocument = new Document();
+    //
+    // newDocument = this.document.name;
+    //
+    //   this.document.name = this.if(this.editMode === true);
+    //   {
+    //     this.documentService.updateDocument(this.originalDocument, newDocument);
+    //   }
+    // else
+    //   {
+    //     this.documentService.addDocument(newDocument);
+    //   }
+    //
+    //   this.router.navigate(['documents'], {relativeTo: this.route});
+    // }
+
   }
 
+  onCancel() {
+    this.router.navigate(['document'], {relativeTo: this.route});
+  }
 }
