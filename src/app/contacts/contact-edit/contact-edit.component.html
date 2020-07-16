@@ -24,20 +24,20 @@
         <div class="col-sm-12 form-group">
           <label for="email">Email</label>
           <input
-            type="text"
+            type="tel"
             id="email"
-            class="form-control required"
+            class="form-control "
             size="120"
             max="255"
             required
+            email
             [ngModel]="contact?.email"
             name="email"
             #email="ngModel"
-            pattern=“[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$”>
+      >
           <p class="alert alert-danger"
              *ngIf="!email.valid && email.touched">Please enter a valid email!</p>
         </div>
-
 
 
         <div class="col-sm-12 form-group">
@@ -51,12 +51,10 @@
             name="phone"
             [ngModel]="contact?.phone"
             #phone="ngModel"
-            pattern="/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/"
           >
           <p class="alert alert-danger" *ngIf="!phone.valid && phone.touched">Please enter a valid phone number!</p>
 
         </div>
-
 
 
         <div class="col-sm-12 form-group">
@@ -77,26 +75,32 @@
         <label for="groupList">Group contacts</label>
 
         <div class="row" id="groupList"
-             style="min-height: 3rem;">
+             style="min-height: 3rem;"
+             dnd-droppable
+             [dropZones]="['contactGroup']" (onDropSuccess)="addToGroup($event)">
 
           <div *ngFor="let contact of groupContacts; let i = index">
             <div>
-              <app-contact-item class="col-sm-11" [contact]="contact"></app-contact-item>
+              <app-contact-item
+                class="col-sm-11"
+                [contact]="contact"
+               ></app-contact-item>
               <button class="btn btn-danger col-sm-2 deleteButton" (click)="onRemoveItem(i)">X</button>
             </div>
           </div>
           <span class="dragMsg" *ngIf="groupContacts?.length < 1">Drag contacts in group here</span>
         </div>
       </div>
-      <p class="alert alert-danger"
-         *ngIf="!name.valid && name.touched || !email.valid && email.touched">The Name and Email are required field</p>
+      <div class="alert alert-danger"
+         *ngIf="(name.invalid && name.touched) || (email.invalid && email.touched)">
+        The Name and Email are required field</div>
 
 
       <div class="row">
         <div class="col-xs-12">
           <button class="btn btn-success"
                   type="submit"
-                  [disabled]="!f.valid">Save
+                  [disabled]="f.invalid">Save
           </button>
           <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
         </div>

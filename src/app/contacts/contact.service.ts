@@ -20,14 +20,6 @@ export class ContactService {
   }
 
   getContact(id: string): Contact {
-    // this.contacts.forEach(
-    //   contact => {
-    //     if (contact.id === id) {
-    //       return contact;
-    //     }
-    //   }
-    // );
-    // return null;
     for (const contact of this.contacts) {
       if (contact.id === id) {
         return contact;
@@ -36,19 +28,6 @@ export class ContactService {
     return null;
   }
 
-  // deleteContact(contact: Contact) {
-  //   if (contact === null) {
-  //     return;
-  //   }
-  //
-  //   const pos = this.contacts.indexOf(contact);
-  //   if (pos < 0) {
-  //     return;
-  //   }
-  //
-  //   this.contacts.splice(pos, 1);
-  //   this.contactChangedEvent.next(this.contacts.slice());
-  // }
 
   getMaxId(): number {
     let maxId = 0;

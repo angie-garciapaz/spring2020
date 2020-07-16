@@ -9,7 +9,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
   styleUrls: ['./contact-detail.component.css']
 })
 export class ContactDetailComponent implements OnInit {
-  @Input() contact: Contact;
+  contact: Contact;
   id: string;
 
   constructor(private contactService: ContactService,
@@ -28,7 +28,7 @@ export class ContactDetailComponent implements OnInit {
 
   onDelete() {
     this.contactService.deleteContact(this.contact);
-    this.router.navigate(['/contacts']);
+    this.router.navigateByUrl('/contacts');
   }
 
 }

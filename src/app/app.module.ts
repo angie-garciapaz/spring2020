@@ -17,12 +17,13 @@ import {MessageItemComponent} from './messages/message-item/message-item.compone
 import {MessageEditComponent} from './messages/message-edit/message-edit.component';
 import {MessageListComponent} from './messages/message-list/message-list.component';
 import {DropdownDirective} from './dropdown.directive';
-import {ContactService} from './contacts/contact.service';
 import {AppRoutingModule} from './app-routing';
 import {DocumentViewComponent} from './documents/document-view/document-view.component';
 import {WinRefService} from './win-ref.service';
-import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
-import {FormsModule} from '@angular/forms';
+import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DndModule} from 'ng2-dnd';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,10 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    DndModule.forRoot(),
   ],
   providers: [WinRefService],
   bootstrap: [AppComponent]
