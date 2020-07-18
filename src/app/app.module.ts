@@ -24,7 +24,7 @@ import {ContactEditComponent} from './contacts/contact-edit/contact-edit.compone
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DndModule} from 'ng2-dnd';
 import {HttpClientModule} from '@angular/common/http';
-import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
+import {ContactsFilterPipe} from './contacts/contacts-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,6 @@ import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
     DropdownDirective,
     DocumentViewComponent,
     ContactsFilterPipe,
-
   ],
   imports: [
     BrowserModule,

@@ -14,12 +14,14 @@ export class ContactsFilterPipe implements PipeTransform {
           contact.name.toLowerCase().includes(term.toLowerCase())
       );
     }
+    //
+    // if (filteredArray.length < 1) {
+    //   return contacts;
+    // }
+    //
+    // return filteredArray;
 
-    if (filteredArray.length < 1) {
-      return contacts;
-    }
-
-    return filteredArray;
+    return filteredArray.length > 0 ? filteredArray : contacts;
 
   }
 

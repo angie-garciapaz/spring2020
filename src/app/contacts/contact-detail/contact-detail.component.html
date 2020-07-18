@@ -33,9 +33,20 @@
       </div>
 
       <div class="panel-body">
-        <div><strong>Email:</strong> {{contact.email}}</div>
-        <div><strong>Phone:</strong> {{contact.phone}}</div>
+        <div class="list-group-item-heading">
+          Email: {{contact?.email}}</div>
+        <div class="list-group-item-heading">
+          Phone: {{contact?.phone}}</div>
 
+      </div>
+
+      <div class="panel-footer" *ngIf="contact?.group && contact?.group.length > 0">
+        <h3>Group Contacts: </h3>
+        <div *ngFor="let groupContact of contact?.group">
+          <div>
+            {{groupContact?.name}}
+          </div>
+        </div>
       </div>
 
     </div>
