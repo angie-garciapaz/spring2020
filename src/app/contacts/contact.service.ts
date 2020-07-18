@@ -1,6 +1,7 @@
 import {Contact} from './contact.model';
 import {MOCKCONTACTS} from './MOCKCONTACTS';
 import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {WinRefService} from '../win-ref.service';
 import {Subject} from 'rxjs';
 
@@ -48,11 +49,13 @@ export class ContactService {
 
     this.maxContactId++;
 
-    const contactListClone = this.contacts.slice();
+    // const contactListClone = this.contacts.slice();
 
     newContact.id = this.maxContactId.toString();
 
     this.contacts.push(newContact);
+
+    // this.storeContacts();
 
 
   }

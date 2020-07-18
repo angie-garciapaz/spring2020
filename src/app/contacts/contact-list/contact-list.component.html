@@ -9,20 +9,33 @@
         <div class="row">
           <div class="input-group pull-left pad-left-right col-xs-7">
 
-            <input type="text" #searchBox>
-            <div class="glyphicon glyphicon glyphicon-search input-group-addon" (click)="search(searchBox.value)"></div>
+            <input
+              class="form-control"
+              type="text"
+              #searchBox
+              placeholder="Enter Search Value"
+              (keyup)="onKeyPress(searchBox.value)"
+            >
+
+            <div class="glyphicon glyphicon glyphicon-search input-group-addon"
+                 (click)="onKeyPress(searchBox.value)"></div>
           </div>
           <div class="pull-right pad-left-right">
             <a class="btn btn-success" [routerLink]="['new']">New Contact</a>
           </div>
         </div>
       </div>
+
       <div class="panel-body">
         <div class="row">
           <div class="col-xs-12">
             <app-contact-item
-              *ngFor="let contactEl of contacts" [contact]="contactEl"
-              dnd-draggable [dragEnabled]="true" [dragData]="contactEl" [dropZones]="['contactGroup']">
+              *ngFor="let contactEl of contacts | contactsFilter:term"
+              [contact]="contactEl"
+              dnd-draggable
+              [dragEnabled]="true"
+              [dragData]="contactEl"
+              [dropZones]="['contactGroup']">
             </app-contact-item>
           </div>
         </div>
