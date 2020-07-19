@@ -1,10 +1,7 @@
 import {Document} from './document.model';
-import {MOCKDOCUMENTS} from './MOCKDOCUMENTS';
 import {Injectable} from '@angular/core';
-import {WinRefService} from '../win-ref.service';
 import {Subject} from 'rxjs';
-import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
-import {Contact} from '../contacts/contact.model';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class DocumentsService {
